@@ -4,7 +4,7 @@ import { NewserviceService } from '../newservice.service';
 @Component({
   selector: 'app-employeedetails',
   template: `
-              <h1>EMPLOYEE DETAILS COMPONENT : DEPENDENCY INJECTION</h1>
+              <h1>EMPLOYEE DETAILS COMPONENT : DEPENDENCY INJECTION uses RxJS</h1>
               <ul *ngFor = "let i of employee">
               <li>{{i.id}}-{{i.name}}</li>
               </ul>`,

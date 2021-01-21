@@ -61,6 +61,7 @@ export class TestComponent implements OnInit {
   constructor(public _employeetest : NewserviceService) { }
 
   public employee:any = []; 
+  
   // This lifecycle hook method is called when the component is initialized. 
   ngOnInit() {
     this.employee = this._employeetest.getEmployee();    
@@ -119,11 +120,11 @@ export class TestComponent implements OnInit {
   @Input() public parentData: any;
   
 
-  // output from child to parent using fireevent
+  // Component Interaction : output from child to parent using fireevent
   @Output() public childEvent = new EventEmitter();
 
   fireevent() {
-    this.childEvent.emit("Hey Codeevolution");
+    this.childEvent.emit("Component Interaction Child to parent using EventEmitter");
   }
 
 

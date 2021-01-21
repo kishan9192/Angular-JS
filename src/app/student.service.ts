@@ -24,10 +24,10 @@ export class StudentService {
   constructor(private http: HttpClient) { }
   
   getStudents(): Observable<IStudent[]> {
-    return this.http.get<IStudent[]>(this.stringurl).pipe(catchError(this.erroHandler));
+    return this.http.get<IStudent[]>(this.stringurl).pipe(catchError(this.errorHandler));
   }
 
-  erroHandler(error: HttpErrorResponse) {
+  errorHandler(error: HttpErrorResponse) {
     return throwError(error.message || 'server Error');
   }
 }

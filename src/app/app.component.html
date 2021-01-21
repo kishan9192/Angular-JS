@@ -2,12 +2,19 @@
 
 
 <!--Component Interaction, sending and receiving data from app and test component-->
-<app-test (childEvent)="message=$event"     [parentData] = "name"></app-test>
+<app-test (childEvent)="message=$event" [parentData] = "name"></app-test>
 
 <h2>EMPLOYEE DETAILS COMPONENT</h2>
 <app-employeedetails></app-employeedetails>
 
 <h2>STUDENT DETAILS COMPONENT</h2>
 <app-studentdetails></app-studentdetails>
-    
+
+
+<nav>
+    <a routerLink = "/test" routerLinkActive = "active"> Test Component </a>
+    <a routerLink = "/studentdetails" routerLinkActive = "active"> Student Component </a>
+    <a routerLink = "/employeedetails" routerLinkActive = "active"> Employee Component </a>
+    <a routerLink = "/department-list" routerLinkActive = "active"> Department Component </a>
+</nav>
 <router-outlet></router-outlet>
