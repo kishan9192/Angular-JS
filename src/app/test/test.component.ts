@@ -8,35 +8,35 @@ import { NewserviceService } from '../newservice.service';
             <h2>{{2 + 2}}</h2>
             <h2>{{"This website's address is " + address}}</h2>
             <input type = "text" [id] = "myId">
-            <input type = "text" [disabled] = "isDisabled" >
+            <input type = "text" [disabled] = "isDisabled">
             <h2 class = "text-special">Angular Project</h2>
-            <h2 class = "text-success">Angular Project</h2>
-            <h2 class = "text-error">Angular Project</h2>
+            <h2 class = "text-success">Text success</h2>
+            <h2 class = "text-error">Text error</h2>
 
             
-            <h2 [class.text-error] = "hasError">hasError</h2>
+            <h2 [class.text-error] = "hasError">Conditional Property Binding</h2>
             
             <h2 [ngClass] = "messageClasses">Angular Project</h2>
-            
+
             
             <h2 [style.color] = "'orange'"> Style Binding 1</h2>
             <h2 [style.color] = "hasError ? 'red' : 'blue'"> Conditional hasError (Style Binding)</h2>
-            
+            <h2 style = "color: turquoise; font-weight: bold; font-style: italic; font-family: 'Lucida Console', 'Courier New', 'monospace'"> Static Inline Style </h2>
             <h2 [ngStyle] = "titleStyle"> NgStyle Directive (When we want to apply multiple styles eksath)</h2>
             
             <button (click) = "onclick()">Event Binding/ Event Listener</button>{{buttonmessage}}
             <br>
             <button (click) = "ClickMethod($event)"> Displays event information </button> {{typeofevent}}
             
-            <input type = "text" #myEvent placeholder = "Enter text">
+            <input type = "text" #myEvent placeholder = "Enter text" >
             <button (click) = "logmessage(myEvent)">log</button> {{inputmessage}}
             
             
             <input type = "text" [(ngModel)]="name"> {{name}}
 
-            <h2>{{parentData}}</h2>
+            <h2>Sending ParentData to child => {{parentData}}</h2>
 
-            <button (click)="fireevent()"> Fire an event </button>
+            <button (click)="fireevent()"> Fire an event for child to parent ComponentInteraction</button>
 
             <ul *ngFor = "let i of employee">
                <li>{{i.name}}.{{i.id}}-{{i.age  }}</li>
@@ -46,13 +46,16 @@ import { NewserviceService } from '../newservice.service';
 
   styles: [`
     .text-special {
-      font-style: bold  ;
+      font-style: italic;
+      font-family: "Lucida Console", "Courier New", monospace;
+      color: grey;
     }
     .text-success {
       color: green;
     }
     .text-error {
       color: red;
+      font-weight: bold;
     }
   `]
 })
@@ -61,9 +64,10 @@ export class TestComponent implements OnInit {
   constructor(public _employeetest : NewserviceService) { }
 
   public employee:any = []; 
-  
+  public isVisible = false; 
   // This lifecycle hook method is called when the component is initialized. 
   ngOnInit() {
+    // this loc is for dependency injection
     this.employee = this._employeetest.getEmployee();    
   }
 
@@ -81,7 +85,7 @@ export class TestComponent implements OnInit {
 
 
   // using ng class directive for class binding
-  public special = false;
+  public special = true;
   public messageClasses = {
     "text-success" : !this.hasError,
     "text-error": this.hasError,
@@ -126,8 +130,5 @@ export class TestComponent implements OnInit {
   fireevent() {
     this.childEvent.emit("Component Interaction Child to parent using EventEmitter");
   }
-
-
-
 
 }  

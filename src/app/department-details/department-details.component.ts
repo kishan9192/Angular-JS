@@ -8,10 +8,20 @@ import {ActivatedRoute, Router, ParamMap} from '@angular/router';
   template: `
     <p>
       You selected the department with department id = {{departmentId}}
-      <a (click) = "goPrevious()">Previous</a>
-      <a (click) = "goNext()">Next</a>
-      <a (click) = "gotoDepartments()">Back</a>
     </p>
+     
+    <p>
+      <button (click) = "goPrevious()">Previous</button>
+      <button (click) = "goNext()">Next</button>
+      <button (click) = "gotoDepartments()">Back</button>
+    </p>
+
+    <p>
+      <button (click) = "showoverview()">Overview</button>
+      <button (click) = "showcontact()">Contact</button>
+    </p>
+
+    <router-outlet></router-outlet>
   `,
   styles: [
   ]
@@ -77,5 +87,14 @@ export class DepartmentDetailsComponent implements OnInit {
   // Optional Routing Parameters come into picture here. 
   gotoDepartments() {
       this.router.navigate(['/department-list', {id: this.departmentId}]);
+  }
+
+  public showoverview() {
+    // this is relative navigation
+    this.router.navigate(['overview'], {relativeTo:this.route});
+  }
+
+  public showcontact() {
+    this.router.navigate(['contactus'], {relativeTo:this.route});
   }
 }

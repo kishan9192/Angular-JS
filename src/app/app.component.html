@@ -1,8 +1,8 @@
-<h1 style = "text-align: center;"> {{message}} </h1>
+<h1 style = "text-align: center;"> {{messaged}} </h1>
 
 
 <!--Component Interaction, sending and receiving data from app and test component-->
-<app-test (childEvent)="message=$event" [parentData] = "name"></app-test>
+<app-test (childEvent)="messaged=$event" [parentData] = "name"></app-test>
 
 <h2>EMPLOYEE DETAILS COMPONENT</h2>
 <app-employeedetails></app-employeedetails>

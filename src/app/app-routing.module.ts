@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+import { OverviewComponent } from './overview/overview.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import { TestComponent } from './test/test.component';
@@ -16,7 +18,12 @@ const routes: Routes = [
   {path: 'studentdetails', component: StudentdetailsComponent},
   {path: 'department-list', component:DepartmentListComponent},
   // after selecting any department, we want to print it's id
-  {path: 'department-list/:id', component: DepartmentDetailsComponent},
+  {path: 'department-list/:id', component: DepartmentDetailsComponent,
+    children : [
+      {path: 'overview', component: OverviewComponent},
+      {path: 'contactus', component:ContactComponent}
+    ],
+  },
   
   // wildcard routing for PAGE NOT FOUND => Incorrect url
   {path: '**', component:PageNotFoundComponent}

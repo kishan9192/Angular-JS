@@ -10,6 +10,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
     // Sending data to child (test) component
-    public name = "Component interaction parent to child sending";
-    public message = "";
+    public name = "PARENT to CHILD COMPONENT INTERACTION";
 }

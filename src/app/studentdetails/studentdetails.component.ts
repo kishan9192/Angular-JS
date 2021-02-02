@@ -7,7 +7,7 @@ import { StudentService } from '../student.service';
               <div *ngFor = "let i of students">
                 <h6>Jersy Number: {{i.id}}  |  Name = {{i.name}} | Score = {{i.score}}</h6>
               </div>
-              <button (click) = "fireanevent()"> New Event </button>{{message}}
+              <button (click) = "fireanevent()"> New Event </button>{{Message}}
               `,
   styleUrls: ['./studentdetails.component.css']
 })
@@ -26,10 +26,10 @@ export class StudentdetailsComponent implements OnInit {
                       error => this.errormessage = error);
   }
   
-  public message = "";
+  public Message = "";
 
   fireanevent() {
-    this.message = "Click event triggered!!";
+    this.Message = "Click event triggered!!";
   }
 
 }
